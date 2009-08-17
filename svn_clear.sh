@@ -7,7 +7,7 @@
 for dir in `find . | grep .svn$`
 do
 	echo "* deleting $dir"
-	rm -rf $dir
+#	rm -rf $dir
 	echo "  DONE!"
 	echo
 done
