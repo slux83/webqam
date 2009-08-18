@@ -23,7 +23,7 @@
 //Global
 #define WEBQAM_SETTINGS_FILE_NAME "webqam.conf"
 #define SETTING_GUI_STATUS_BAR_TIMEOUT 3000 //in ms
-#define WEBQAM_VERSION "1.0.0"
+#define WEBQAM_VERSION "SVN"
 #define WEBQAM_DATETIME_FORMAT "dd/MM/yyyy hh:mm:ss"
 
 //Database
