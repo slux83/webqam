@@ -131,8 +131,9 @@ void WebcamViewer::slotZoomImage(int value)
 {
     QPixmap scaledPixmap = m_originalPixmap.scaledToWidth(value, Qt::SmoothTransformation);
     imageBox->setPixmap(scaledPixmap);
-    statusBar()->showMessage(tr("Image size: %1x%2").arg(QString::number(scaledPixmap.width()),
-                                                            QString::number(scaledPixmap.height())),
+    statusBar()->showMessage(tr("Image size: %1x%2 (%3%)").arg(QString::number(scaledPixmap.width()),
+                                                            QString::number(scaledPixmap.height()),
+                                                            QString::number((scaledPixmap.width() * 100 )/m_originalPixmap.width())),
                             10000);
 }
 
