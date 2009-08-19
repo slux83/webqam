@@ -1,0 +1,3 @@
+#summary What you need to compile and run webQam
+#labels Featured,Phase-Requirements
+To compile and execute WebQam you need Linux or Windows (not tested on Apple OSX) and Qt >= 4.4.1 (4.5.x recommended) 
