@@ -25,7 +25,7 @@
 //Global
 #define WEBQAM_SETTINGS_FILE_NAME "webQam.conf"
 #define SETTING_GUI_STATUS_BAR_TIMEOUT 5000 //in ms
-#define WEBQAM_VERSION "1.0.0"
+#define WEBQAM_VERSION "SVN"
 #define WEBQAM_DATETIME_FORMAT "dd/MM/yyyy hh:mm:ss"
 #define WEBQAM_HOME QDir::homePath().append("/.webQam/")
 
