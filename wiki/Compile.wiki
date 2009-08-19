@@ -1,0 +1,8 @@
+#summary How-To compile and run webQam starting from source archive
+#labels Phase-Deploy,Featured
+
+= Introduction =
+ # Download the src archive from [http://code.google.com/p/webqam/downloads/list]
+ # Unpack the archive and place your promt inside the folder `webQam-x.x.x` where x.x.x is the version number
+ # Type `qmake`, `make` and wait...
+ # When the process is finished, you can find the compiled binary file in bin/
