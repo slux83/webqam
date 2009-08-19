@@ -64,61 +64,59 @@
   <valuemap type="QVariantMap" >
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList" >
-    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-t1rmBlSE7k,guid=7c537427ddf35a8855a4892b4a89002c</value>
-    <value type="QString" >DERBY_HOME=/opt/java/db</value>
+    <value type="QString" >ANT_HOME=/usr/share/java/apache-ant</value>
+    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-AR3Oiphjfi,guid=f78347d0780c964d8d3421224a8c2f7a</value>
     <value type="QString" >DESKTOP_SESSION=kde</value>
     <value type="QString" >DESKTOP_STARTUP_ID=</value>
     <value type="QString" >DISPLAY=:0.0</value>
     <value type="QString" >DM_CONTROL=/var/run/xdmctl</value>
-    <value type="QString" >GPG_AGENT_INFO=/tmp/gpg-yO6h57/S.gpg-agent:4437:1</value>
-    <value type="QString" >GS_LIB=/home/difazio/.fonts</value>
-    <value type="QString" >GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/difazio/.gtkrc-2.0:/home/difazio/.gtkrc-2.0-kde4:/home/difazio/.kde4/share/config/gtkrc-2.0</value>
-    <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/home/difazio/.gtkrc::/home/difazio/.kde4/share/config/gtkrc</value>
+    <value type="QString" >E17DIR=/opt/e17</value>
+    <value type="QString" >GS_LIB=/home/slux/.fonts</value>
+    <value type="QString" >GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/slux/.gtkrc-2.0:/home/slux/.gtkrc-2.0-kde4:/home/slux/.kde4/share/config/gtkrc-2.0</value>
+    <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/home/slux/.gtkrc::/home/slux/.kde4/share/config/gtkrc</value>
     <value type="QString" >G_BROKEN_FILENAMES=1</value>
-    <value type="QString" >HISTCONTROL=erasedups</value>
-    <value type="QString" >HISTSIZE=1000</value>
-    <value type="QString" >HOME=/home/difazio</value>
+    <value type="QString" >HOME=/home/slux</value>
     <value type="QString" >INPUTRC=/etc/inputrc</value>
-    <value type="QString" >J2SDKDIR=/opt/java</value>
-    <value type="QString" >JAVA_HOME=/opt/java</value>
+    <value type="QString" >J2REDIR=/usr/lib/jvm/java-1.6.0-openjdk/jre</value>
+    <value type="QString" >J2SDKDIR=/usr/lib/jvm/java-1.6.0-openjdk</value>
+    <value type="QString" >JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk</value>
     <value type="QString" >KDE_FULL_SESSION=true</value>
     <value type="QString" >KDE_MULTIHEAD=false</value>
     <value type="QString" >KDE_SESSION_UID=1000</value>
     <value type="QString" >KDE_SESSION_VERSION=4</value>
     <value type="QString" >LANG=it_IT.utf-8</value>
-    <value type="QString" >LANGUAGE=</value>
     <value type="QString" >LC_COLLATE=C</value>
     <value type="QString" >LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
     <value type="QString" >LESS=-R</value>
-    <value type="QString" >LOGNAME=difazio</value>
-    <value type="QString" >MANPATH=::/opt/netkit/man</value>
+    <value type="QString" >LESSCHARSET=latin1</value>
+    <value type="QString" >LOGNAME=slux</value>
+    <value type="QString" >MANPAGER=/usr/bin/most</value>
+    <value type="QString" >MANPATH=/usr/man:/usr/X11R6/man:/opt/e17/man::/opt/netkit/man</value>
     <value type="QString" >MOZ_PLUGIN_PATH=/usr/lib/mozilla/plugins</value>
     <value type="QString" >NETKIT_HOME=/opt/netkit</value>
-    <value type="QString" >PATH=/usr/bin:/opt/netkit/bin:/bin:/usr/bin:/sbin:/usr/sbin:/opt/java/bin:/opt/java/jre/bin:/usr/bin/perlbin/site:/usr/bin/perlbin/vendor:/usr/bin/perlbin/core</value>
-    <value type="QString" >PKG_CONFIG_PATH=/usr/lib/pkgconfig</value>
-    <value type="QString" >PS3=> </value>
-    <value type="QString" >PS4=+ </value>
-    <value type="QString" >PWD=/home/difazio/Documents</value>
+    <value type="QString" >OOO_FORCE_DESKTOP=gnome</value>
+    <value type="QString" >PATH=/usr/bin:/opt/netkit/bin:/opt/kde/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11R6/bin:/opt/bin:/opt/java/bin:/usr/local/bin:.:/opt/android-sdk/tools:/usr/share/java/apache-ant/bin:/opt/e17/bin:/usr/bin/perlbin/site:/usr/bin/perlbin/vendor:/usr/bin/perlbin/core:/opt/qt/bin</value>
+    <value type="QString" >PKG_CONFIG_PATH=:/opt/e17/lib/pkgconfig:/opt/qt/lib/pkgconfig</value>
+    <value type="QString" >PWD=/home/slux/Documents</value>
     <value type="QString" >QTDIR=/usr</value>
-    <value type="QString" >QT_PLUGIN_PATH=/home/difazio/.kde4/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
-    <value type="QString" >SESSION_MANAGER=local/work:@/tmp/.ICE-unix/4569,unix/work:/tmp/.ICE-unix/4569</value>
+    <value type="QString" >QT_PLUGIN_PATH=/home/slux/.kde4/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
+    <value type="QString" >QT_XFT=true</value>
+    <value type="QString" >SESSION_MANAGER=local/skynet:@/tmp/.ICE-unix/4407,unix/skynet:/tmp/.ICE-unix/4407</value>
     <value type="QString" >SHELL=/bin/bash</value>
     <value type="QString" >SHLVL=1</value>
-    <value type="QString" >SSH_AGENT_PID=4440</value>
-    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-fNJRtR4439/agent.4439</value>
-    <value type="QString" >USER=difazio</value>
+    <value type="QString" >USER=slux</value>
     <value type="QString" >WINDOWPATH=7</value>
-    <value type="QString" >XCURSOR_THEME=Oxygen_Black</value>
-    <value type="QString" >XDG_CACHE_HOME=/home/difazio/.cache</value>
+    <value type="QString" >XCURSOR_THEME=Oxygen_Zion</value>
+    <value type="QString" >XDG_CACHE_HOME=/home/slux/.cache</value>
     <value type="QString" >XDG_CONFIG_DIRS=/etc/xdg</value>
-    <value type="QString" >XDG_CONFIG_HOME=/home/difazio/.config</value>
+    <value type="QString" >XDG_CONFIG_HOME=/home/slux/.config</value>
     <value type="QString" >XDG_DATA_DIRS=/usr/share:/usr/local/share</value>
-    <value type="QString" >XDG_DATA_HOME=/home/difazio/.local/share</value>
-    <value type="QString" >XDG_SESSION_COOKIE=bc8a1c6956daa4b88c840f8d4a7306dd-1250492457.679742-339634463</value>
+    <value type="QString" >XDG_DATA_HOME=/home/slux/.local/share</value>
+    <value type="QString" >XDG_SESSION_COOKIE=a2d5ebd95abc4ab120b0930045c79928-1250701174.985723-207981961</value>
     <value type="QString" >XDM_MANAGED=method=classic</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList" >
-    <value type="QString" >/home/difazio/sviluppo/privateProjects/webQam/webQam.pro</value>
+    <value type="QString" >/home/slux/sviluppo/C++/webQam/trunk/webQam.pro</value>
     <value type="QString" >-spec</value>
     <value type="QString" >/usr/share/qt/mkspecs/linux-g++</value>
     <value type="QString" >-r</value>
@@ -126,7 +124,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString" >/usr/bin/qmake</value>
    <value key="abstractProcess.enabled" type="bool" >false</value>
-   <value key="abstractProcess.workingDirectory" type="QString" >/home/difazio/sviluppo/privateProjects/webQam</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >/home/slux/sviluppo/C++/webQam/trunk</value>
    <value key="buildConfiguration" type="int" >2</value>
   </valuemap>
  </data>
@@ -135,57 +133,55 @@
   <valuemap type="QVariantMap" >
    <value key="ProjectExplorer.BuildConfiguration.DisplayName" type="QString" >Debug</value>
    <valuelist key="abstractProcess.Environment" type="QVariantList" >
-    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-t1rmBlSE7k,guid=7c537427ddf35a8855a4892b4a89002c</value>
-    <value type="QString" >DERBY_HOME=/opt/java/db</value>
+    <value type="QString" >ANT_HOME=/usr/share/java/apache-ant</value>
+    <value type="QString" >DBUS_SESSION_BUS_ADDRESS=unix:abstract=/tmp/dbus-AR3Oiphjfi,guid=f78347d0780c964d8d3421224a8c2f7a</value>
     <value type="QString" >DESKTOP_SESSION=kde</value>
     <value type="QString" >DESKTOP_STARTUP_ID=</value>
     <value type="QString" >DISPLAY=:0.0</value>
     <value type="QString" >DM_CONTROL=/var/run/xdmctl</value>
-    <value type="QString" >GPG_AGENT_INFO=/tmp/gpg-yO6h57/S.gpg-agent:4437:1</value>
-    <value type="QString" >GS_LIB=/home/difazio/.fonts</value>
-    <value type="QString" >GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/difazio/.gtkrc-2.0:/home/difazio/.gtkrc-2.0-kde4:/home/difazio/.kde4/share/config/gtkrc-2.0</value>
-    <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/home/difazio/.gtkrc::/home/difazio/.kde4/share/config/gtkrc</value>
+    <value type="QString" >E17DIR=/opt/e17</value>
+    <value type="QString" >GS_LIB=/home/slux/.fonts</value>
+    <value type="QString" >GTK2_RC_FILES=/etc/gtk-2.0/gtkrc:/home/slux/.gtkrc-2.0:/home/slux/.gtkrc-2.0-kde4:/home/slux/.kde4/share/config/gtkrc-2.0</value>
+    <value type="QString" >GTK_RC_FILES=/etc/gtk/gtkrc:/home/slux/.gtkrc::/home/slux/.kde4/share/config/gtkrc</value>
     <value type="QString" >G_BROKEN_FILENAMES=1</value>
-    <value type="QString" >HISTCONTROL=erasedups</value>
-    <value type="QString" >HISTSIZE=1000</value>
-    <value type="QString" >HOME=/home/difazio</value>
+    <value type="QString" >HOME=/home/slux</value>
     <value type="QString" >INPUTRC=/etc/inputrc</value>
-    <value type="QString" >J2SDKDIR=/opt/java</value>
-    <value type="QString" >JAVA_HOME=/opt/java</value>
+    <value type="QString" >J2REDIR=/usr/lib/jvm/java-1.6.0-openjdk/jre</value>
+    <value type="QString" >J2SDKDIR=/usr/lib/jvm/java-1.6.0-openjdk</value>
+    <value type="QString" >JAVA_HOME=/usr/lib/jvm/java-1.6.0-openjdk</value>
     <value type="QString" >KDE_FULL_SESSION=true</value>
     <value type="QString" >KDE_MULTIHEAD=false</value>
     <value type="QString" >KDE_SESSION_UID=1000</value>
     <value type="QString" >KDE_SESSION_VERSION=4</value>
     <value type="QString" >LANG=it_IT.utf-8</value>
-    <value type="QString" >LANGUAGE=</value>
     <value type="QString" >LC_COLLATE=C</value>
     <value type="QString" >LD_LIBRARY_PATH=/usr/lib/qtcreator:</value>
     <value type="QString" >LESS=-R</value>
-    <value type="QString" >LOGNAME=difazio</value>
-    <value type="QString" >MANPATH=::/opt/netkit/man</value>
+    <value type="QString" >LESSCHARSET=latin1</value>
+    <value type="QString" >LOGNAME=slux</value>
+    <value type="QString" >MANPAGER=/usr/bin/most</value>
+    <value type="QString" >MANPATH=/usr/man:/usr/X11R6/man:/opt/e17/man::/opt/netkit/man</value>
     <value type="QString" >MOZ_PLUGIN_PATH=/usr/lib/mozilla/plugins</value>
     <value type="QString" >NETKIT_HOME=/opt/netkit</value>
-    <value type="QString" >PATH=/usr/bin:/opt/netkit/bin:/bin:/usr/bin:/sbin:/usr/sbin:/opt/java/bin:/opt/java/jre/bin:/usr/bin/perlbin/site:/usr/bin/perlbin/vendor:/usr/bin/perlbin/core</value>
-    <value type="QString" >PKG_CONFIG_PATH=/usr/lib/pkgconfig</value>
-    <value type="QString" >PS3=> </value>
-    <value type="QString" >PS4=+ </value>
-    <value type="QString" >PWD=/home/difazio/Documents</value>
+    <value type="QString" >OOO_FORCE_DESKTOP=gnome</value>
+    <value type="QString" >PATH=/usr/bin:/opt/netkit/bin:/opt/kde/bin:/bin:/usr/bin:/sbin:/usr/sbin:/usr/X11R6/bin:/opt/bin:/opt/java/bin:/usr/local/bin:.:/opt/android-sdk/tools:/usr/share/java/apache-ant/bin:/opt/e17/bin:/usr/bin/perlbin/site:/usr/bin/perlbin/vendor:/usr/bin/perlbin/core:/opt/qt/bin</value>
+    <value type="QString" >PKG_CONFIG_PATH=:/opt/e17/lib/pkgconfig:/opt/qt/lib/pkgconfig</value>
+    <value type="QString" >PWD=/home/slux/Documents</value>
     <value type="QString" >QTDIR=/usr</value>
-    <value type="QString" >QT_PLUGIN_PATH=/home/difazio/.kde4/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
-    <value type="QString" >SESSION_MANAGER=local/work:@/tmp/.ICE-unix/4569,unix/work:/tmp/.ICE-unix/4569</value>
+    <value type="QString" >QT_PLUGIN_PATH=/home/slux/.kde4/lib/kde4/plugins/:/usr/lib/kde4/plugins/</value>
+    <value type="QString" >QT_XFT=true</value>
+    <value type="QString" >SESSION_MANAGER=local/skynet:@/tmp/.ICE-unix/4407,unix/skynet:/tmp/.ICE-unix/4407</value>
     <value type="QString" >SHELL=/bin/bash</value>
     <value type="QString" >SHLVL=1</value>
-    <value type="QString" >SSH_AGENT_PID=4440</value>
-    <value type="QString" >SSH_AUTH_SOCK=/tmp/ssh-fNJRtR4439/agent.4439</value>
-    <value type="QString" >USER=difazio</value>
+    <value type="QString" >USER=slux</value>
     <value type="QString" >WINDOWPATH=7</value>
-    <value type="QString" >XCURSOR_THEME=Oxygen_Black</value>
-    <value type="QString" >XDG_CACHE_HOME=/home/difazio/.cache</value>
+    <value type="QString" >XCURSOR_THEME=Oxygen_Zion</value>
+    <value type="QString" >XDG_CACHE_HOME=/home/slux/.cache</value>
     <value type="QString" >XDG_CONFIG_DIRS=/etc/xdg</value>
-    <value type="QString" >XDG_CONFIG_HOME=/home/difazio/.config</value>
+    <value type="QString" >XDG_CONFIG_HOME=/home/slux/.config</value>
     <value type="QString" >XDG_DATA_DIRS=/usr/share:/usr/local/share</value>
-    <value type="QString" >XDG_DATA_HOME=/home/difazio/.local/share</value>
-    <value type="QString" >XDG_SESSION_COOKIE=bc8a1c6956daa4b88c840f8d4a7306dd-1250492457.679742-339634463</value>
+    <value type="QString" >XDG_DATA_HOME=/home/slux/.local/share</value>
+    <value type="QString" >XDG_SESSION_COOKIE=a2d5ebd95abc4ab120b0930045c79928-1250701174.985723-207981961</value>
     <value type="QString" >XDM_MANAGED=method=classic</value>
    </valuelist>
    <valuelist key="abstractProcess.arguments" type="QVariantList" >
@@ -193,7 +189,7 @@
    </valuelist>
    <value key="abstractProcess.command" type="QString" >/usr/bin/make</value>
    <value key="abstractProcess.enabled" type="bool" >true</value>
-   <value key="abstractProcess.workingDirectory" type="QString" >/home/difazio/sviluppo/privateProjects/webQam</value>
+   <value key="abstractProcess.workingDirectory" type="QString" >/home/slux/sviluppo/C++/webQam/trunk</value>
   </valuemap>
  </data>
  <data>

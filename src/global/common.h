@@ -20,11 +20,14 @@
 #ifndef COMMON_H
 #define COMMON_H
 
+#include <QtCore>
+
 //Global
-#define WEBQAM_SETTINGS_FILE_NAME "webqam.conf"
-#define SETTING_GUI_STATUS_BAR_TIMEOUT 3000 //in ms
+#define WEBQAM_SETTINGS_FILE_NAME "webQam.conf"
+#define SETTING_GUI_STATUS_BAR_TIMEOUT 5000 //in ms
 #define WEBQAM_VERSION "SVN"
 #define WEBQAM_DATETIME_FORMAT "dd/MM/yyyy hh:mm:ss"
+#define WEBQAM_HOME QDir::homePath().append("/.webQam/")
 
 //Database
 #define SQLITE_DRIVER_NAME "QSQLITE"
@@ -35,7 +38,9 @@
 
 //Settings
 #define SETTING_OPTIONS_GROUP "options"
+#define SETTING_GLOBALS_GROUP "globals"
 #define SETTINGS_TIMEOUT "timeout"
 #define SETTINGS_THUMB_SIZE "thumbSize"
+#define SETTINGS_VERSION "version"
 
 #endif // COMMON_H
