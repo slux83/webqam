@@ -119,10 +119,10 @@ void CamsController::slotOptionsChanged(QMap<QString, int> options)
     m_timer->start(newTimeout);
 
     if(!options.contains(SETTINGS_TIMEOUT))
-        qWarning() << "cannot find timeout key on settings... default value is 1 minute";
+        qWarning() << "cannot find timeout key on settings... default value is used";
 
     if(!options.contains(SETTINGS_THUMB_SIZE))
-        qWarning() << "cannot find thumbnailsize key on settings... default value is 320px";
+        qWarning() << "cannot find thumbnailsize key on settings... default value is used";
 
     quint16 newThumbSize = (quint16)options.value(SETTINGS_THUMB_SIZE, 320);
     m_lastThumbnailSize = newThumbSize;

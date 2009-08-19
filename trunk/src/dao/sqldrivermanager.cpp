@@ -29,13 +29,16 @@ bool SqlDriverManager::validateSystemForSQLITE()
 bool SqlDriverManager::initDatabase()
 {
     QSqlDatabase db = QSqlDatabase::addDatabase(SQLITE_DRIVER_NAME, SQLITE_DB_CONNECTION_NAME);
-    db.setDatabaseName(SQLITE_DB_FILE_NAME);
+    db.setDatabaseName(WEBQAM_HOME.append(SQLITE_DB_FILE_NAME));
 
-    bool allreadyInit = QFile::exists(QDir::currentPath().append(QDir::toNativeSeparators("/").append(SQLITE_DB_FILE_NAME)));
+    qDebug() << "Sqlite:" << WEBQAM_HOME.append(SQLITE_DB_FILE_NAME);
+
+    bool allreadyInit = QFile::exists(WEBQAM_HOME.append(SQLITE_DB_FILE_NAME));
 
     if(allreadyInit) return true;
 
-    db.open();
+    if(!db.open())
+        qCritical() << db.lastError();
 
     QFile sqlInitDbFile(":/sql/init_database");
 

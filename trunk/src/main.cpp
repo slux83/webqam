@@ -46,6 +46,12 @@ int main(int argc, char *argv[])
         return 1;
     }
 
+    if(!QFile::exists(WEBQAM_HOME))
+    {
+        QDir dir;
+        qDebug() << "Creating webQam home: " << WEBQAM_HOME << dir.mkpath(WEBQAM_HOME);
+    }
+
     if(!SqlDriverManager::initDatabase())
     {
         QMessageBox::critical(0, QObject::tr("webQam - Cannot execute query"),

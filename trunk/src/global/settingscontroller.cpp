@@ -25,15 +25,25 @@
 SettingsController* SettingsController::m_instance = 0;
 
 SettingsController::SettingsController(const QString &fileName, Format format, QObject *parent)
-    : QSettings(fileName, format, parent) {}
+    : QSettings(fileName, format, parent)
+{
+    //Store global options
+    beginGroup(SETTING_GLOBALS_GROUP);
+        setValue(SETTINGS_VERSION, WEBQAM_VERSION);
+    endGroup();
+
+    sync();
+}
 
 SettingsController* SettingsController::instance()
 {
-    QString settingsPath = QDir::currentPath()
-                           .append(QDir::toNativeSeparators("/"))
-                                   .append(WEBQAM_SETTINGS_FILE_NAME);
+
     if(!m_instance)
+    {
+        QString settingsPath = WEBQAM_HOME.append(WEBQAM_SETTINGS_FILE_NAME);
+        qDebug() << "WebQam home is " << WEBQAM_HOME;
         m_instance = new SettingsController(settingsPath, QSettings::IniFormat);
+    }
 
     return m_instance;
 }
