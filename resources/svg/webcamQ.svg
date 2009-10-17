@@ -17,7 +17,10 @@
    version="1.0"
    sodipodi:docbase="/home/pinheiro/artwork/Oxygen/theme/svg/devices"
    sodipodi:docname="webcamQ.svg"
-   inkscape:output_extension="org.inkscape.output.svg.inkscape">
+   inkscape:output_extension="org.inkscape.output.svg.inkscape"
+   inkscape:export-filename="/home/difazio/sviluppo/cpp/webQam/trunk/resources/webQam.png"
+   inkscape:export-xdpi="90"
+   inkscape:export-ydpi="90">
   <defs
      id="defs1309">
     <linearGradient
@@ -399,7 +402,7 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="2.4373689"
-     inkscape:cx="-8.5819364"
+     inkscape:cx="-63.764392"
      inkscape:cy="38.879901"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -464,7 +467,8 @@
     <g
        id="g3234"
        inkscape:export-xdpi="36.5625"
-       inkscape:export-ydpi="36.5625">
+       inkscape:export-ydpi="36.5625"
+       transform="matrix(0.9317723,0,0,0.9317723,4.9702616,-0.7103102)">
       <text
          sodipodi:linespacing="100%"
          id="text2455"
@@ -562,7 +566,7 @@
          sodipodi:nodetypes="ccccccccccccccccccccccccc"
          id="path2985"
          d="M 75.443999,68.420626 L 75.110109,74.66591 L 74.663293,68.420491 L 71.479162,73.961997 L 73.987252,68.034949 L 67.521289,71.991557 L 73.597016,67.367308 L 66.347944,67.664821 L 73.597155,66.596458 L 67.522825,63.338493 L 73.987626,65.928951 L 70.731126,60.171806 L 74.663804,65.543644 L 75.113184,59.013275 L 75.444509,65.543781 L 79.49483,60.173324 L 76.12055,65.929321 L 81.604831,64.139358 L 76.510784,66.596964 L 82.316209,67.610839 L 76.510648,67.367811 L 80.044153,70.56876 L 76.120177,68.035319 L 79.492168,75.16087 L 75.443999,68.420626 z"
-         style="fill:url(#radialGradient3374);fill-opacity:1.0;fill-rule:nonzero;stroke:#6c6c6c;stroke-width:0.27546801999999998;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:4;stroke-opacity:0" />
+         style="fill:url(#radialGradient3374);fill-opacity:1;fill-rule:nonzero;stroke:#6c6c6c;stroke-width:0.27546802;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:4;stroke-dashoffset:4;stroke-opacity:0" />
     </g>
   </g>
 </svg>
