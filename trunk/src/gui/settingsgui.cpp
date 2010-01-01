@@ -19,6 +19,7 @@
 
 #include "settingsgui.h"
 #include "addwebcamdialog.h"
+#include "addfolderdialog.h"
 #include "ui_settingsgui.h"
 #include "../model/tree/treemodel.h"
 #include "../model/tree/treeitem.h"
@@ -30,12 +31,19 @@ SettingsGui::SettingsGui(QWidget *parent)
 {
     ui->setupUi(this);
     m_treeModel = 0;
+    m_addStuffMenu = 0;
 
     //Sort filter proxy model init
     m_sortFilterProxyModel = new QSortFilterProxyModel(this);
     m_sortFilterProxyModel->setDynamicSortFilter(true);
     m_sortFilterProxyModel->setSortCaseSensitivity(Qt::CaseInsensitive);
     m_sortFilterProxyModel->setFilterCaseSensitivity(Qt::CaseInsensitive);
+
+    //init context menu for add buttun
+    m_addStuffMenu = new QMenu();
+    m_addStuffMenu->addAction(QIcon(":/icons/folder"), tr("Add folder"), AddFolderDialog::instance(), SLOT(slotShowDialog()));
+    m_addStuffMenu->addAction(QIcon(":/icons/webcam"), tr("Add webcam"), AddWebcamDialog::instance(), SLOT(slotShowDialog()));
+    ui->pushButtonNewWebcam->setMenu(m_addStuffMenu);
 
     //connections
     connect(ui->lineEditFilter, SIGNAL(textChanged(const QString &)),
@@ -45,7 +53,6 @@ SettingsGui::SettingsGui(QWidget *parent)
     connect(this, SIGNAL(signalOptionsSaved(QMap<QString,int>)),
         CamsController::instance(), SLOT(slotOptionsChanged(QMap<QString,int>)));
     connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(slotTabChanged(int)));
-    connect(ui->pushButtonNewWebcam, SIGNAL(clicked()), AddWebcamDialog::instance(), SLOT(slotShowDialog()));
     connect(ui->pushButtonDeleteWebcams, SIGNAL(clicked()), this, SLOT(slotDeleteSelectedWebcams()));
 
     //init options reading settings

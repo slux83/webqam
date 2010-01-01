@@ -17,50 +17,28 @@
  ** along with this program.  If not, see <http://www.gnu.org/licenses/>.
  *****************************************************************************/
 
-#ifndef SETTINGSGUI_H
-#define SETTINGSGUI_H
+#ifndef ADDFOLDERDIALOG_H
+#define ADDFOLDERDIALOG_H
 
-#include <QtGui>
-#include "../model/folder.h"
-#include "../model/tree/treemodel.h"
-#include "imagemenu.h"
+#include "ui_addfolderdialog.h"
+#include <QtCore>
 
-namespace Ui
-{
-    class SettingsGui;
-}
-
-class SettingsGui : public QMainWindow
+class AddFolderDialog : public QDialog, private Ui::AddFolderDialog
 {
     Q_OBJECT
 
-    public:
-        SettingsGui(QWidget *parent = 0);
-        ~SettingsGui();
-        void setTreeModel(TreeModel *treeModel);
+private:
+    AddFolderDialog(QWidget *parent = 0);
+    static AddFolderDialog* m_instance;
 
-    public slots:
-        void showOnCenter();
-        void slotSaveOptions();
+public slots:
+    void slotShowDialog();
 
-    private slots:
-        void treeDataSaved();
-        void writeOnStatusbar(QString msg);
-        void slotTabChanged(int index);
-        void slotDeleteSelectedWebcams();
+public:
+    static AddFolderDialog* instance();
 
-    private:
-        Ui::SettingsGui *ui;
-        TreeModel *m_treeModel;
-        QMenu *m_addStuffMenu;
-        QSortFilterProxyModel *m_sortFilterProxyModel;
-        void centerWindow();
-
-    protected:
-        void closeEvent(QCloseEvent *event);
-
-    signals:
-        void signalOptionsSaved(QMap<QString, int> options);
+protected:
+    void changeEvent(QEvent *e);
 };
 
-#endif // SETTINGSGUI_H
+#endif // ADDFOLDERDIALOG_H

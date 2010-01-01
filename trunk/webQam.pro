@@ -1,7 +1,6 @@
 # webQam Qt project file
 # Copyright (C) 2009 Alessio Di Fazio
 # License: GPLv3
-
 QT += network
 QT += sql
 TARGET = webQam
@@ -30,11 +29,13 @@ SOURCES += src/main.cpp \
     src/global/settingscontroller.cpp \
     src/gui/addwebcamdialog.cpp \
     src/gui/webcamviewer.cpp \
-    src/gui/aboutdialog.cpp
+    src/gui/aboutdialog.cpp \
+    src/gui/addfolderdialog.cpp
 FORMS += ui/settingsgui.ui \
     ui/addwebcamdialog.ui \
     ui/webcamviewer.ui \
-    ui/aboutdialog.ui
+    ui/aboutdialog.ui \
+    ui/addfolderdialog.ui
 HEADERS += src/dao/sqldrivermanager.h \
     src/global/common.h \
     src/global/camscontroller.h \
@@ -52,4 +53,5 @@ HEADERS += src/dao/sqldrivermanager.h \
     src/global/settingscontroller.h \
     src/gui/addwebcamdialog.h \
     src/gui/webcamviewer.h \
-    src/gui/aboutdialog.h
+    src/gui/aboutdialog.h \
+    src/gui/addfolderdialog.h
