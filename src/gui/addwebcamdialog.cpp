@@ -74,6 +74,7 @@ void AddWebcamDialog::slotShowDialog()
     preview->clear();
     lineEditName->clear();
     lineEditUrl->clear();
+    lineEditName->setFocus(Qt::OtherFocusReason);
 
     show();
 }
