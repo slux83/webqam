@@ -42,18 +42,19 @@ SettingsGui::SettingsGui(QWidget *parent)
     //init context menu for add buttun
     m_addStuffMenu = new QMenu();
     m_addStuffMenu->addAction(QIcon(":/icons/folder"), tr("Add folder"), AddFolderDialog::instance(), SLOT(slotShowDialog()));
-    m_addStuffMenu->addAction(QIcon(":/icons/webcam"), tr("Add webcam"), AddWebcamDialog::instance(), SLOT(slotShowDialog()));
+    m_addStuffMenu->addAction(QIcon(":/icons/webcam-new"), tr("Add webcam"), AddWebcamDialog::instance(), SLOT(slotShowDialog()));
     ui->pushButtonNewWebcam->setMenu(m_addStuffMenu);
 
     //connections
     connect(ui->lineEditFilter, SIGNAL(textChanged(const QString &)),
         m_sortFilterProxyModel, SLOT(setFilterFixedString(const QString &)));
     connect(ui->pushButton, SIGNAL(clicked()), this, SLOT(slotSaveOptions()));
-    connect(qApp, SIGNAL(aboutToQuit()), this, SLOT(slotSaveOptions()));
     connect(this, SIGNAL(signalOptionsSaved(QMap<QString,int>)),
         CamsController::instance(), SLOT(slotOptionsChanged(QMap<QString,int>)));
     connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(slotTabChanged(int)));
     connect(ui->pushButtonDeleteWebcams, SIGNAL(clicked()), this, SLOT(slotDeleteSelectedWebcams()));
+    connect(ui->spinBoxThumbnailSize, SIGNAL(valueChanged(int)), this, SLOT(slotNeedSaveAction()));
+    connect(ui->spinBoxTimeout, SIGNAL(valueChanged(int)), this, SLOT(slotNeedSaveAction()));
 
     //init options reading settings
     QMap<QString, int> options = SettingsController::instance()->readOptions();
@@ -62,6 +63,8 @@ SettingsGui::SettingsGui(QWidget *parent)
         ui->spinBoxTimeout->setValue(options.value(SETTINGS_TIMEOUT));
     if(options.contains(SETTINGS_THUMB_SIZE))
         ui->spinBoxThumbnailSize->setValue(options.value(SETTINGS_THUMB_SIZE));
+
+    m_needSaveAction = false;
 }
 
 SettingsGui::~SettingsGui()
@@ -69,8 +72,20 @@ SettingsGui::~SettingsGui()
     delete ui;
 }
 
+void SettingsGui::slotNeedSaveAction()
+{
+    m_needSaveAction = true;
+}
+
 void SettingsGui::closeEvent(QCloseEvent *event)
 {
+    if(m_needSaveAction && QMessageBox::question(this,
+                    tr("webQam - question"), tr("Do you want to save changed options?"),
+                     QMessageBox::Yes, QMessageBox::No) == QMessageBox::Yes)
+    {
+        slotSaveOptions();
+    }
+
     hide();
     event->ignore();
 }
@@ -131,6 +146,8 @@ void SettingsGui::slotSaveOptions()
     writeOnStatusbar(tr("Options saved"));
 
     emit signalOptionsSaved(options);
+
+    m_needSaveAction = false;
 }
 
 void SettingsGui::slotTabChanged(int index)
@@ -140,9 +157,6 @@ void SettingsGui::slotTabChanged(int index)
 
 void SettingsGui::slotDeleteSelectedWebcams()
 {
-    //QItemSelectionModel *treeSelectionModel = ui->treeView->selectionModel();
-
-    //QModelIndexList selectedIndexes = treeSelectionModel->selectedRows(0);
     QItemSelection itemSelection = ui->treeView->selectionModel()->selection();
     QModelIndexList selectedIndexes =
             m_sortFilterProxyModel->mapSelectionToSource(itemSelection).indexes();

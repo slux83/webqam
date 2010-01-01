@@ -48,9 +48,11 @@ class SettingsGui : public QMainWindow
         void writeOnStatusbar(QString msg);
         void slotTabChanged(int index);
         void slotDeleteSelectedWebcams();
+        void slotNeedSaveAction();
 
     private:
         Ui::SettingsGui *ui;
+        bool m_needSaveAction;
         TreeModel *m_treeModel;
         QMenu *m_addStuffMenu;
         QSortFilterProxyModel *m_sortFilterProxyModel;
