@@ -15,6 +15,7 @@
         <file alias="save" >icons/save.png</file>
         <file alias="logoQ" >icons/logoQ.png</file>
         <file alias="zoom" >icons/zoom.png</file>
+        <file alias="webcam-new" >icons/webcam-new.png</file>
     </qresource>
     <qresource prefix="/sql" >
         <file alias="init_database" >sql/webQam.sql</file>
