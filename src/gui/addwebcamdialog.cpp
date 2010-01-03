@@ -37,6 +37,8 @@ AddWebcamDialog::AddWebcamDialog(QWidget *parent) :
     connect(lineEditUrl, SIGNAL(textChanged(QString)), this, SLOT(slotLockUnlockSaveAction(QString)));
 
     setVisible(false);
+
+    networkGroupBox->setVisible(false); //TODO: Maybe in the next version :)
 }
 
 AddWebcamDialog* AddWebcamDialog::instance()
@@ -96,12 +98,13 @@ void AddWebcamDialog::slotInsertWebcam()
 
     QString result = CamsController::instance()->insertWebcam(webcam);
 
+    QApplication::restoreOverrideCursor();
+
     if(!result.isEmpty())
         QMessageBox::warning(this, tr("webQam - Warning"), result);
     else
         hide();
 
-    QApplication::restoreOverrideCursor();
 }
 
 void AddWebcamDialog::slotLockUnlockSaveAction(const QString& url)

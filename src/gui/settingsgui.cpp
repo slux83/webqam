@@ -52,7 +52,7 @@ SettingsGui::SettingsGui(QWidget *parent)
     connect(this, SIGNAL(signalOptionsSaved(QMap<QString,int>)),
         CamsController::instance(), SLOT(slotOptionsChanged(QMap<QString,int>)));
     connect(ui->tabWidget, SIGNAL(currentChanged(int)), this, SLOT(slotTabChanged(int)));
-    connect(ui->pushButtonDeleteWebcams, SIGNAL(clicked()), this, SLOT(slotDeleteSelectedWebcams()));
+    connect(ui->pushButtonDeleteWebcams, SIGNAL(clicked()), this, SLOT(slotDeleteSelectedItems()));
     connect(ui->spinBoxThumbnailSize, SIGNAL(valueChanged(int)), this, SLOT(slotNeedSaveAction()));
     connect(ui->spinBoxTimeout, SIGNAL(valueChanged(int)), this, SLOT(slotNeedSaveAction()));
 
@@ -155,7 +155,7 @@ void SettingsGui::slotTabChanged(int index)
     ui->pushButton->setDisabled(index == 1);
 }
 
-void SettingsGui::slotDeleteSelectedWebcams()
+void SettingsGui::slotDeleteSelectedItems()
 {
     QItemSelection itemSelection = ui->treeView->selectionModel()->selection();
     QModelIndexList selectedIndexes =
@@ -168,11 +168,11 @@ void SettingsGui::slotDeleteSelectedWebcams()
     }
 
     //Confirm operation
-    if(QMessageBox::question(this, tr("webQam - question"), tr("Delete selected webcams?"),
+    if(QMessageBox::question(this, tr("webQam - question"), tr("Delete selected items?"),
                              QMessageBox::Yes, QMessageBox::No) != QMessageBox::Yes)
         return;
 
-    QList<int> webcamIds;
+    QList<int> webcamIds, folderIds;
     foreach(QModelIndex index, selectedIndexes)
     {
         TreeItem * treeItem = static_cast<TreeItem*>(index.internalPointer());
@@ -182,7 +182,8 @@ void SettingsGui::slotDeleteSelectedWebcams()
             continue;
         }
 
-        if(treeItem->isFolder()) continue;  //Skeep folders
+        if(treeItem->isFolder())
+            folderIds.append(treeItem->id());
 
         if(!webcamIds.contains(treeItem->id()))
             webcamIds.append(treeItem->id());
@@ -191,4 +192,8 @@ void SettingsGui::slotDeleteSelectedWebcams()
     //Delete selected webcams
     qDebug() << "Deleting webcams: " << webcamIds;
     CamsController::instance()->deleteWebcams(webcamIds);
+
+    //Delete selected folders
+    qDebug() << "Deleting folders: " << folderIds;
+    CamsController::instance()->deleteFolders(folderIds);
 }

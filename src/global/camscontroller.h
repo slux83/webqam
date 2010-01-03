@@ -48,7 +48,9 @@ class CamsController : public QObject
         QMap<QUrl, ImageMenu*> webCams() { return m_webCams; }
         QMap<int, Folder> folders() { return m_folders; }
         QString insertWebcam(Webcam webcam);
+        QString insertFolder(Folder folder);
         bool deleteWebcams(QList<int> ids);
+        bool deleteFolders(QList<int> ids);
 
     public slots:
         void updateCams();

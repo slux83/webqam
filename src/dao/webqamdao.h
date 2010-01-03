@@ -39,7 +39,9 @@ class WebQamDao : public QObject
         bool updateFolder(int id, QString name);
         bool updateWebcam(int id, QString name, QString url);
         bool insertWebcam(Webcam webcam, QSqlError &sqlError);
+        bool insertFolder(Folder folder, QSqlError &sqlError);
         bool deleteWebcams(QList<int> ids);
+        bool deleteFolders(QList<int> ids);
 };
 
 #endif // WEBQAMDAO_H

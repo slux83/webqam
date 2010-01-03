@@ -32,7 +32,7 @@
     <widget class="QLineEdit" name="folderNameLineEdit"/>
    </item>
    <item row="2" column="2">
-    <widget class="QDialogButtonBox" name="buttonBox">
+    <widget class="QDialogButtonBox" name="saveButtonBox">
      <property name="enabled">
       <bool>false</bool>
      </property>
@@ -64,7 +64,7 @@
  </resources>
  <connections>
   <connection>
-   <sender>buttonBox</sender>
+   <sender>saveButtonBox</sender>
    <signal>rejected()</signal>
    <receiver>AddFolderDialog</receiver>
    <slot>reject()</slot>

@@ -47,7 +47,7 @@ class SettingsGui : public QMainWindow
         void treeDataSaved();
         void writeOnStatusbar(QString msg);
         void slotTabChanged(int index);
-        void slotDeleteSelectedWebcams();
+        void slotDeleteSelectedItems();
         void slotNeedSaveAction();
 
     private:

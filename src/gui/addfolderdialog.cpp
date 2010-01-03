@@ -18,6 +18,7 @@
  *****************************************************************************/
 
 #include "addfolderdialog.h"
+#include "../global/camscontroller.h"
 
 AddFolderDialog* AddFolderDialog::m_instance = 0;
 
@@ -26,6 +27,9 @@ AddFolderDialog::AddFolderDialog(QWidget *parent) :
 {
     setupUi(this);
     setVisible(false);
+
+    connect(folderNameLineEdit, SIGNAL(textChanged(QString)), this, SLOT(slotLockUnlockSaveButton(QString)));
+    connect(saveButtonBox, SIGNAL(accepted()), this, SLOT(slotInsertFolder()));
 }
 
 AddFolderDialog* AddFolderDialog::instance()
@@ -54,4 +58,27 @@ void AddFolderDialog::slotShowDialog()
     folderNameLineEdit->clear();
     folderNameLineEdit->setFocus(Qt::OtherFocusReason);
     show();
+}
+
+void AddFolderDialog::slotLockUnlockSaveButton(QString text)
+{
+    saveButtonBox->setDisabled(text.trimmed().isEmpty());
+}
+
+void AddFolderDialog::slotInsertFolder()
+{
+    QApplication::setOverrideCursor(QCursor(Qt::WaitCursor));
+
+    Folder folder;
+    folder.setName(folderNameLineEdit->text());
+
+    QString result = CamsController::instance()->insertFolder(folder);
+
+    QApplication::restoreOverrideCursor();
+
+    if(!result.isEmpty())
+        QMessageBox::warning(this, tr("webQam - Warning"), result);
+    else
+        hide();
+
 }
