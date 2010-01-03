@@ -34,6 +34,10 @@ private:
 public slots:
     void slotShowDialog();
 
+private slots:
+    void slotLockUnlockSaveButton(QString text);
+    void slotInsertFolder();
+
 public:
     static AddFolderDialog* instance();
 

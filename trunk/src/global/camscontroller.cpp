@@ -140,7 +140,34 @@ void CamsController::slotOptionsChanged(QMap<QString, int> options)
 /**
     \return QString filled with the error string to show if any
 */
+QString CamsController::insertFolder(Folder folder)
+{
+    QSqlError sqlError;
+    WebQamDao::instance()->insertFolder(folder, sqlError);
 
+    QString returnValue;
+
+    switch(sqlError.number())
+    {
+        case -1:
+        case  0:
+            returnValue = "";
+            SystemTray::instance()->refresh(true);
+            break;
+
+        case 19:    //constraint failed
+            returnValue = tr("Folder name allready exists! Please choose another one.");
+            break;
+        default:
+            returnValue = tr("Unknown error: ") + sqlError.text();
+    }
+
+    return returnValue;
+}
+
+/**
+    \return QString filled with the error string to show if any
+*/
 QString CamsController::insertWebcam(Webcam webcam)
 {
     QSqlError sqlError;
@@ -168,6 +195,16 @@ QString CamsController::insertWebcam(Webcam webcam)
 bool CamsController::deleteWebcams(QList<int> ids)
 {
     bool result = WebQamDao::instance()->deleteWebcams(ids);
+
+    if(result)
+        SystemTray::instance()->refresh(true);  //refresh all
+
+    return result;
+}
+
+bool CamsController::deleteFolders(QList<int> ids)
+{
+    bool result = WebQamDao::instance()->deleteFolders(ids);
 
     if(result)
         SystemTray::instance()->refresh(true);  //refresh all

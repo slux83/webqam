@@ -128,6 +128,27 @@ bool WebQamDao::insertWebcam(Webcam webcam, QSqlError &sqlError)
     return result;
 }
 
+bool WebQamDao::insertFolder(Folder folder, QSqlError &sqlError)
+{
+    QSqlDatabase sqlDb = QSqlDatabase::database(SQLITE_DB_CONNECTION_NAME);
+
+    QSqlQuery query(sqlDb);
+    query.prepare(QString("INSERT INTO ") + SQLITE_DB_TABLE_FOLDER +
+            " (name) VALUES(:name)");
+
+    query.bindValue(":name", folder.name());
+
+    bool result = query.exec();
+
+    sqlError = query.lastError();
+    if(!result)
+    {
+        qWarning() << "Insert new folder error:" << query.lastError();
+    }
+
+    return result;
+}
+
 bool WebQamDao::deleteWebcams(QList<int> ids)
 {
     QSqlDatabase sqlDb = QSqlDatabase::database(SQLITE_DB_CONNECTION_NAME);
@@ -149,6 +170,39 @@ bool WebQamDao::deleteWebcams(QList<int> ids)
         {
             QSqlError sqlError = query.lastError();
             qWarning() << "Delete webcam error: " << query.lastError() << " ID: " << id;
+            returnVal = false;
+        }
+    }
+
+    if(returnVal)
+        sqlDb.commit();
+    else
+        sqlDb.rollback();
+
+    return returnVal;
+}
+
+bool WebQamDao::deleteFolders(QList<int> ids)
+{
+    QSqlDatabase sqlDb = QSqlDatabase::database(SQLITE_DB_CONNECTION_NAME);
+    bool returnVal = true;
+
+    if(!sqlDb.transaction())
+    {
+        qCritical() << "Cannot begin the transaction:"
+                << sqlDb.lastError();
+    }
+
+    foreach(int id, ids)
+    {
+        QSqlQuery query(sqlDb);
+        query.prepare(QString("DELETE FROM ") + SQLITE_DB_TABLE_FOLDER + " WHERE id = :ids");
+        query.bindValue(":id", id);
+
+        if(!query.exec())
+        {
+            QSqlError sqlError = query.lastError();
+            qWarning() << "Delete folder error: " << query.lastError() << " ID: " << id;
             returnVal = false;
         }
     }

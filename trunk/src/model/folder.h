@@ -37,6 +37,9 @@ class Folder
         int id() { return m_id; }
         int parentId() { return m_parentId; }
         QString name() { return m_name; }
+
+        void setId(int id) { m_id = id; }
+        void setName(QString name) { m_name = name; }
 };
 
 #endif // FOLDER_H
