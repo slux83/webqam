@@ -44,6 +44,7 @@ class TreeItem
         bool isFolder() { return m_isFolder; }
         void setId(int id) { m_id = id; }
         int id() { return m_id; }
+        QVector<QVariant> getItemData() { return itemData; }
 
     private:
         QList<TreeItem*> childItems;

@@ -28,6 +28,7 @@
 #define WEBQAM_VERSION "SVN"
 #define WEBQAM_DATETIME_FORMAT "dd/MM/yyyy hh:mm:ss"
 #define WEBQAM_HOME QDir::homePath().append("/.webQam/")
+#define WEBQAM_MIME_TYPE "application/webqam.list"
 
 //Database
 #define SQLITE_DRIVER_NAME "QSQLITE"
