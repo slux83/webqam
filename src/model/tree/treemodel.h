@@ -34,7 +34,6 @@ class TreeModel : public QAbstractItemModel
     public:
         TreeModel(const QStringList &headers, QObject *parent = 0);
         ~TreeModel();
-
         QVariant data(const QModelIndex &index, int role) const;
         QVariant headerData(int section, Qt::Orientation orientation,
                             int role = Qt::DisplayRole) const;
@@ -47,6 +46,13 @@ class TreeModel : public QAbstractItemModel
         int columnCount(const QModelIndex &parent = QModelIndex()) const;
 
         Qt::DropActions supportedDropActions() const;
+        QStringList mimeTypes() const;
+
+        QMimeData* mimeData(const QModelIndexList &indexes) const;
+
+        bool dropMimeData(const QMimeData *data,
+                          Qt::DropAction action,
+                          int row, int column, const QModelIndex &parent);
 
         Qt::ItemFlags flags(const QModelIndex &index) const;
         bool setData(const QModelIndex &index, const QVariant &value,

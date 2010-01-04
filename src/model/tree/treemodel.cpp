@@ -21,6 +21,7 @@
 
 #include "treeitem.h"
 #include "treemodel.h"
+#include "../../global/common.h"
 
 TreeModel::TreeModel(const QStringList &headers, QObject *parent)
     : QAbstractItemModel(parent)
@@ -37,6 +38,11 @@ TreeModel::~TreeModel()
 {
     delete m_rootItem;
 }
+
+ Qt::DropActions TreeModel::supportedDropActions() const
+ {
+     return Qt::MoveAction;
+ }
 
 int TreeModel::columnCount(const QModelIndex &/*parent*/) const
 {
@@ -77,15 +83,10 @@ Qt::ItemFlags TreeModel::flags(const QModelIndex &index) const
 
     if(item->isFolder())
         return Qt::ItemIsEditable | Qt::ItemIsEnabled |
-            Qt::ItemIsSelectable | Qt::ItemIsDropEnabled;
+            Qt::ItemIsSelectable | Qt::ItemIsDropEnabled | Qt::ItemIsDropEnabled;
     else
         return Qt::ItemIsEditable | Qt::ItemIsEnabled |
-            Qt::ItemIsSelectable | Qt::ItemIsDragEnabled;
-}
-
-Qt::DropActions TreeModel::supportedDropActions() const
-{
-    return Qt::MoveAction;
+            Qt::ItemIsSelectable | Qt::ItemIsDragEnabled | Qt::ItemIsDragEnabled;
 }
 
 TreeItem *TreeModel::getItem(const QModelIndex &index) const
@@ -95,6 +96,78 @@ TreeItem *TreeModel::getItem(const QModelIndex &index) const
         if (item) return item;
     }
     return m_rootItem;
+}
+
+QStringList TreeModel::mimeTypes() const
+{
+    QStringList types;
+    types << WEBQAM_MIME_TYPE;
+    return types;
+}
+
+bool TreeModel::dropMimeData(const QMimeData *data, Qt::DropAction action,
+                          int row, int column, const QModelIndex &parent)
+{
+    if (action == Qt::IgnoreAction)
+        return true;
+
+    if (!data->hasFormat(WEBQAM_MIME_TYPE))
+        return false;
+
+    //Unpack data
+    QVector<QVariant> itemData;
+    int id, totalDroppedWebcams;
+    bool isFolder;
+    QByteArray encodedData = data->data(WEBQAM_MIME_TYPE);
+    QDataStream stream(&encodedData, QIODevice::ReadOnly);
+
+    stream >> totalDroppedWebcams;
+    qDebug() << "Dropped webcams:" << totalDroppedWebcams;
+
+    for(int i=0; i<totalDroppedWebcams; i++)
+    {
+        stream >> itemData >> id >> isFolder;
+
+        if(isFolder) continue; //folder D&D is not supported now
+
+        //Drop inside the root item
+        if(row == -1 && column == -1) {}
+
+        TreeItem *folderItem = getItem(parent);
+        folderItem->insertChildren(folderItem->childCount(), 1, folderItem->columnCount(), itemData);
+        TreeItem *item = folderItem->child(folderItem->childCount() - 1);
+        item->setIsFolder(isFolder);
+        item->setId(id);
+    }
+
+    return true;
+}
+
+QMimeData* TreeModel::mimeData(const QModelIndexList &indexes) const
+{
+    QMimeData *mimeData = new QMimeData();
+    QByteArray encodedData;
+
+    QDataStream stream(&encodedData, QIODevice::WriteOnly);
+
+    stream << indexes.size();
+
+    foreach (QModelIndex index, indexes)
+    {
+        if (index.isValid())
+        {
+            TreeItem *treeItem = getItem(index);
+            QVector<QVariant> itemData = treeItem->getItemData();
+
+            //Stream: NUM_DROPS,DATA(QVector<QVariant>),ID(int),IS_FOLDER(bool),etc...
+            stream << itemData;
+            stream << treeItem->id();
+            stream << treeItem->isFolder();
+        }
+    }
+
+    mimeData->setData(WEBQAM_MIME_TYPE, encodedData);
+    return mimeData;
 }
 
 QVariant TreeModel::headerData(int section, Qt::Orientation orientation,
