@@ -76,7 +76,6 @@ void ImageMenu::paintEvent(QPaintEvent * /*event*/)
 void ImageMenu::setImage(QPixmap newImage)
 {
     m_originalImage = newImage;
-    //m_originalImage.load("/home/difazio/Documents/wallpapers/93114-jaguar.jpg");
 
     if(!m_originalImage.isNull() && m_originalImage.width() > m_thumbnailSize)
         image = m_originalImage.scaledToWidth((int)m_thumbnailSize, Qt::SmoothTransformation);
