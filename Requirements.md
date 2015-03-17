@@ -1,0 +1,1 @@
+To compile and execute webQam you need Linux or Windows (not tested on Apple OSX) and [Nokia-Qt](http://qt.nokia.com/) >= 4.4.1 (4.5.x recommended)
